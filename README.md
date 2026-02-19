@@ -29,7 +29,7 @@ A free, open-source tool for deploying, importing, and interacting with Starknet
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20+
 - A Starknet wallet browser extension (Argent X, Braavos, or Keon)
 
 ### Installation
@@ -108,4 +108,10 @@ Contributions are welcome! Here's how you can help:
 
 ## License
 
-Open source.
+This project is source-available under the [Business Source License 1.1 (BSL 1.1)](https://mariadb.com/bsl11/).
+
+- You are free to view, fork, and contribute to the source code.
+- You may **not** copy, redistribute, or deploy this software as your own product or service.
+- Commercial use and redistribution require explicit written permission from the author.
+
+Copyright (c) 2025 Cycle Stark. All rights reserved.
