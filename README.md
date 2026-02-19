@@ -94,7 +94,9 @@ sudo apt-get install llvm-dev libclang-dev clang
 
 ## Contributing
 
-Contributions are welcome! Here's how you can help:
+Contributions are welcome! Please read the [Contributing Guide](CONTRIBUTING.md) for setup instructions, coding standards, and the PR process.
+
+Quick links:
 
 - [Report a Bug](https://github.com/Cycle-Stark/stark-deployer/issues/new?labels=bug)
 - [Request a Feature](https://github.com/Cycle-Stark/stark-deployer/issues/new?labels=enhancement)
