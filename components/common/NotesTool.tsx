@@ -334,7 +334,7 @@ export const NotesButton = () => {
 
   return (
     <>
-      <ActionIcon hiddenFrom={"md"} size={"md"} radius={"xl"} color={"yellow"} variant="filled" onClick={toggle} style={{ marginRight: 4 }}>
+      <ActionIcon hiddenFrom={"md"} size={"md"} radius={"xl"} color={"yellow"} variant="filled" onClick={toggle}>
         <IconNote size={14} />
       </ActionIcon>
       <Button visibleFrom='md' variant='outline' size="xs" px={"lg"} radius="xl" color='yellow' onClick={toggle} rightSection={<IconNote size={14} />}>

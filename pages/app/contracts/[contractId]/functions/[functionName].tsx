@@ -93,6 +93,8 @@ const SingleFunction = () => {
       return
     }
 
+    const chainId =  await actualContract.providerOrAccount.getChainId()
+
     if (!contractId) {
       logsManager.logError(`Contract ID not found`)
       return

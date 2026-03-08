@@ -30,6 +30,7 @@ import {
   IconActivity,
   IconChevronLeft,
   IconArrowUp,
+  IconX,
 } from '@tabler/icons-react';
 import Link from 'next/link';
 import ColorSchemeToggle from '@/components/ColorSchemeToggle/ColorSchemeToggle';
@@ -88,7 +89,7 @@ function ContractLayout({ children }: AppLayoutProps) {
       aside={{
         width: { base: 250, md: 400 },
         breakpoint: 'md',
-        collapsed: { desktop: !sidebarOpened, mobile: sidebarOpened },
+        collapsed: { desktop: !sidebarOpened, mobile: !sidebarOpened },
       }}
       styles={{
         navbar: {
@@ -112,25 +113,29 @@ function ContractLayout({ children }: AppLayoutProps) {
     >
       <AppShell.Header>
         <Group h="100%" px="md" justify="space-between">
-          <Group>
+          <Group gap={"xs"} align='center'>
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-            <Group gap={"xs"} align='center'>
-              <ActionIcon style={{ pointerEvents: "none" }} color='violet'
-                size={"lg"}
-                radius={"md"} variant='light'>
-                <IconShield size={20} />
-              </ActionIcon>
-              <Text size="sm">
-                Contracts
-              </Text>
-              <IconChevronRight size={20} />
-              <Text size="sm">
-                {contract?.name || "Interact"}
-              </Text>
+            <Group gap={"2px"} align='center'>
+              <Group gap={"xs"} visibleFrom='md' align='center'>
+                <ActionIcon style={{ pointerEvents: "none" }} color='violet'
+                  size={"lg"}
+                  radius={"md"} variant='light'>
+                  <IconShield size={20} />
+                </ActionIcon>
+                <Text size="sm">
+                  Contracts
+                </Text>
+                <IconChevronRight size={20} />
+                <Text size="sm">
+                  {contract?.name || "Interact"}
+                </Text>
+              </Group>
               {
                 functionName ? (
                   <>
-                    <IconChevronRight size={20} />
+                    <Group visibleFrom='sm' h={"fit-content"}>
+                      <IconChevronRight size={20} />
+                    </Group>
                     <Text size="sm">
                       {functionName}
                     </Text>
@@ -140,7 +145,7 @@ function ContractLayout({ children }: AppLayoutProps) {
             </Group>
           </Group>
 
-          <Group>
+          <Group gap={"2px"}>
             <NetworkSwitch />
             <ColorSchemeToggle />
             <ActionIcon onClick={sideBarToggle} variant='light' size="lg" radius="md">
@@ -154,31 +159,38 @@ function ContractLayout({ children }: AppLayoutProps) {
       <AppShell.Navbar>
         <AppShell.Section>
           <Stack gap={"xs"}>
-            <Group h={"60px"} px={"md"}>
-              <Center w={"40px"} h={"40px"}
-                style={{
-                  background: isDark ? theme.colors.darkColor[7] : theme.colors.gray[3],
-                  borderRadius: theme.radius.md,
-                }}
-              >
-                <IconLayout2 size={20} />
-              </Center>
-              <Stack gap={0}>
-                <Text size='sm'>
-                  Stark Deployer
-                </Text>
-                <Text size='xs' c={"dimmed"}>
-                  Interaction Suite
-                </Text>
-              </Stack>
+            <Group h={"60px"} px={"md"} justify='space-between' align='center'>
+              <Group>
+                <Center w={"40px"} h={"40px"}
+                  style={{
+                    background: isDark ? theme.colors.darkColor[7] : theme.colors.gray[3],
+                    borderRadius: theme.radius.md,
+                  }}
+                >
+                  <IconLayout2 size={20} />
+                </Center>
+                <Stack gap={0}>
+                  <Text size='sm'>
+                    Stark Deployer
+                  </Text>
+                  <Text size='xs' c={"dimmed"}>
+                    Interaction Suite
+                  </Text>
+                </Stack>
+              </Group>
+              <ActionIcon onClick={() => {
+                toggle()
+              }} variant='light' size="lg" radius="md" display={{ base: "block", sm: "none" }}>
+                <IconX size={20} />
+              </ActionIcon>
             </Group>
             <Stack gap="2px" px={"md"}>
               {
                 navigationItems.map((item) => (
-                  <SidebarLink key={item.label} label={item.label} href={`${item.href.replace(':contractId', (contract?.id as any) ?? "-")}`} Icon={item.icon} />
+                  <SidebarLink key={item.label} label={item.label} href={`${item.href.replace(':contractId', (contract?.id as any) ?? "-")}`} Icon={item.icon} click={() => toggle()} />
                 ))
               }
-              <SidebarLink label="Upgrade Contract" href="#" Icon={IconArrowUp} click={(e: React.MouseEvent) => { e.preventDefault(); openUpgrade(); }} />
+              <SidebarLink label="Upgrade Contract" href="#" Icon={IconArrowUp} click={(e: React.MouseEvent) => { e.preventDefault(); openUpgrade(); toggle(); }} />
             </Stack>
             <Divider />
             <Box px={"md"}>
@@ -215,6 +227,7 @@ function ContractLayout({ children }: AppLayoutProps) {
                   href={`/app/contracts/${contractId}/functions/${func.name}`}
                   Icon={func.state_mutability === "view" ? IconEye : IconWriting}
                   radius="md"
+                  click={() => toggle()}
                 />
               ))
             }
@@ -231,7 +244,7 @@ function ContractLayout({ children }: AppLayoutProps) {
       <AppShell.Main h="calc(100vh - 100px)"
         bg={isDark ? theme.colors.darkColor[9] : theme.white} pb="md">
         {children}
-      </AppShell.Main> 
+      </AppShell.Main>
       <AppShell.Footer h="40px" zIndex={0}>
         <Group gap={"md"} justify='space-between' align='center' h="100%" px={"md"}>
           <Text size="xs" c="dimmed">

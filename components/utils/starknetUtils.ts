@@ -177,7 +177,6 @@ export const getChainId = (chainId: string) => {
     if (['0x534e5f4d41494e', 'SN_MAIN', '23448594291968334n', '23448594291968334'].includes(chainId)) return 'SN_MAIN';
     if (['0x534e5f5345504f4c4941', 'SN_SEPOLIA', '393402133025997798000961n', '393402133025997798000961'].includes(chainId)) return 'SN_SEPOLIA';
     if (['0x534e5f4445564e4554', 'SN_DEVNET', '1536727065640230077780n', '1536727065640230077780'].includes(chainId)) return 'SN_DEVNET';
-    console.log("WE went default case Chain id: ", chainId);
     return chainId;
 };
 

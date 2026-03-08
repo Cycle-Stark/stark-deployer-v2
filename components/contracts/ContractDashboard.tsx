@@ -281,7 +281,10 @@ const ContractDashboard = ({ contract, className }: Props) => {
           <Group gap="xs" align="center" wrap='nowrap'>
             <Box bg={isDark ? theme.colors.dark[8] : theme.colors.gray[1]} ff={"monospace"} style={{ flex: 1, fontSize: '14px', borderRadius: theme.radius.md }} p={"sm"} h={"40px"}>
               <Group wrap='nowrap'>
-                <Text size='sm'>
+                <Text size='sm' style={{
+                  wordBreak: "break-all",
+                  wordWrap: "break-word"
+                }}>
                   {contract.address}
                 </Text>
                 <Box ml="auto">
