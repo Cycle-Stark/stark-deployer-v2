@@ -124,7 +124,7 @@ const AppProvider = ({ children }: IAppProvider) => {
                     dappName: "Stark Deployer",
                     url: window.location.origin,
                 },
-                modalMode: "alwaysAsk",
+                modalMode: "canAsk",
                 // modalMode: enablingCount === 1 ? "neverAsk" : "alwaysAsk",
                 connectors: [
                     new InjectedConnector({
