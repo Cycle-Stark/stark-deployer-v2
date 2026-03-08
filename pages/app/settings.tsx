@@ -260,13 +260,13 @@ function SettingsPage() {
                 {...form.getInputProps('activeChain')}
                 data={[
                   { value: 'starknet', label: 'Starknet' },
-                  { value: 'ethereum', label: 'Ethereum' },
-                  { value: 'sepolia', label: 'Sepolia' },
-                  { value: 'arbitrum', label: 'Arbitrum' },
-                  { value: 'base', label: 'Base' },
-                  { value: 'polygon', label: 'Polygon' },
-                  { value: 'bsc', label: 'BSC' },
-                  { value: 'avalanche', label: 'Avalanche' }
+                  // { value: 'ethereum', label: 'Ethereum' },
+                  // { value: 'sepolia', label: 'Sepolia' },
+                  // { value: 'arbitrum', label: 'Arbitrum' },
+                  // { value: 'base', label: 'Base' },
+                  // { value: 'polygon', label: 'Polygon' },
+                  // { value: 'bsc', label: 'BSC' },
+                  // { value: 'avalanche', label: 'Avalanche' }
                 ]}
                 radius={inputRadius}
               />

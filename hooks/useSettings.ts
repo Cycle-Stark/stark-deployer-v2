@@ -41,12 +41,12 @@ export function useSettings(key: string = 'main') {
     starknet: {
       networks: {
         mainnet: {
-          rpcUrl: 'https://starknet.drpc.org',
-          explorerUrl: 'https://starkscan.co'
+          rpcUrl: 'https://starknet-mainnet-rpc.publicnode.com',
+          explorerUrl: 'https://voyager.online'
         },
         sepolia: {
-          rpcUrl: 'https://starknet-sepolia.drpc.org',
-          explorerUrl: 'https://sepolia.starkscan.co'
+          rpcUrl: 'https://starknet-sepolia-rpc.publicnode.com',
+          explorerUrl: 'https://sepolia.voyager.online'
         },
         devnet: {
           rpcUrl: 'http://127.0.0.1:5050',
